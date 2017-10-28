@@ -43,24 +43,28 @@ converter.fromFile("./Product Information.csv", (err, result) => {
   //   console.log("JSON file has been created");
   // });
 
-  const product1Company = products.product1['Company Name']
-  const product1Name = products.product1['Product Name']
-  const product1Description = products.product1['Product Description']
-  const product1Price = products.product1['MSPR']
+  const product1Name = `<p id="product1Name">${products.product1['Company Name']} - ${products.product1['Product Name']}</p>`
+  const product1Description = `<p id="product1Description">${products.product1['Product Description']}`
+  const product1Price = `<p id="product1Price">${products.product1['MSPR']}`
 
-  const product2Company = products.product2['Company Name']
-  const product2Name = products.product2['Product Name']
-  const product2Description = products.product2['Product Description']
-  const product2Price = products.product2['MSPR']
+  const product2Name = `<p id="product2Name">${products.product2['Company Name']} - ${products.product2['Product Name']}</p>`
+  const product2Description = `<p id="product2Description">${products.product2['Product Description']}`
+  const product2Price = `<p id="product2Price">${products.product2['MSPR']}`
 
-  const product3Company = products.product3['Company Name']
-  const product3Name = products.product3['Product Name']
-  const product3Description = products.product3['Product Description']
-  const product3Price = products.product3['MSPR']
+  const product3Name = `<p id="product3Name">${products.product3['Company Name']} - ${products.product3['Product Name']}</p>`
+  const product3Description = `<p id="product3Description">${products.product3['Product Description']}`
+  const product3Price = `<p id="product2Price">${products.product2['MSPR']}`
 
   // Build html file
   const $ = cheerio.load('<ul>Stuff</ul><p id="product1"></p><p id="product2"></p>');
-  $('<p>stuff</p>').appendTo('#product2')
+  $(product1Name).appendTo('#product1')
+  $(product1Description).appendTo('#product1')
+  $(product1Price).appendTo('#product1')
+
+  $(product2Name).appendTo('#product2')
+  $(product2Description).appendTo('#product2')
+  $(product2Price).appendTo('#product2')
+
   $.html()
 
 
