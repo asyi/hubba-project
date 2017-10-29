@@ -35,14 +35,6 @@ converter.fromFile("./Product Information.csv", (err, result) => {
   const products = arrayToObject(json);
   console.log(products);
 
-  // fs.writeFile('./object.json', JSON.stringify(products, null, 4), (err) => {
-  //   if (err) {
-  //     console.error(err);
-  //     return;
-  //   };
-  //   console.log("JSON file has been created");
-  // });
-
   const product1Name = `<p id="product1Name">${products.product1['Company Name']} - ${products.product1['Product Name']}</p>`
   const product1Description = `<p id="product1Description">${products.product1['Product Description']}`
   const product1Price = `<p id="product1Price">${products.product1['MSPR']}`
@@ -70,9 +62,23 @@ converter.fromFile("./Product Information.csv", (err, result) => {
   $(product3Name).prependTo('#product3-purchase-table')
   $(product3Price).appendTo('#product-3-price-td')
 
-  $.html()
-
+  const emailTemplate = pretty($.html());
 
   console.log(pretty($.html()));
 
+  // fs.writeFile('./object.json', JSON.stringify(products, null, 4), (err) => {
+  //   if (err) {
+  //     console.error(err);
+  //     return;
+  //   };
+  //   console.log("JSON file has been created");
+  // });
+
+  fs.writeFile('./email.html', emailTemplate, (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    };
+    console.log("Email file has been created");
+  });
 });
