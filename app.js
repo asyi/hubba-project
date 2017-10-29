@@ -37,6 +37,7 @@ converter.fromFile("./Product Information.csv", (err, result) => {
   console.log(products);
 
   // create variables to store HTML with JSON
+
   const product1Name = `<p id="product1Name">${products.product1['Company Name']} - ${products.product1['Product Name']}</p>`
   const product1Description = `<p id="product1Description">${products.product1['Product Description']}`
   const product1Price = `<p id="product1Price">${products.product1['MSPR']}`
