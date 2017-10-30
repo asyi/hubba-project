@@ -74,7 +74,7 @@ converter.fromFile("./Product Information.csv", (err, result) => {
   console.log(pretty($.html()));
 
   // Use fs to output an html document containing emailTemplate
-  fs.appendFile('./email.html', emailTemplate, (err) => {
+  fs.writeFile('./email.html', emailTemplate, (err) => {
     if (err) {
       console.error(err);
       return;
