@@ -2,7 +2,7 @@
 
 This project takes in data from a CSV file, converts it into JSON, inputs it into an HTML template and finally outputs this template as an external file.
 
-To run it, simply type: **node app.js**
+To run it, after installing dependencies, simply type: **node app.js**
 
 A file called email.html will be outputted into the same directory.
 
